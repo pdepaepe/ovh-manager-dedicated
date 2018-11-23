@@ -1,0 +1,28 @@
+<div data-ng-controller="CdnLogsCtrl as listCtrl">
+
+    <ovh-tail-logs>
+        <div class="row ml-0"
+             data-ng-repeat="log in listCtrl.logger.logs track by $index"
+             data-ng-class="{
+                'text-primary' : log.message.status >= 200 && log.message.status < 300,
+                'text-warning' : log.message.status >= 300 && log.message.status < 499,
+                'text-danger'  : log.message.status > 499
+            }">
+            
+
+            <span class="col-md-2" data-ng-bind="log.message.timestamp | date:'short'"></span>
+            <div class="col-md-4"><span data-ng-if="log.message.is_ssl === 'H2'">h2://</span><span data-ng-if="log.message.is_ssl === 'NO'">http://</span><span data-ng-if="log.message.is_ssl === 'YES'">https://</span><span data-ng-bind="log.message.vhost"></span><span data-ng-bind="log.message.uri"></span></div>
+        
+            
+            <span class="col-md-1" data-ng-bind="log.message.source"></span>
+            <span class="col-md-1" data-ng-bind="log.message.node"></span>
+            <span class="col-md-1" data-ng-bind="log.message.status"></span>
+            <span class="col-md-1" data-ng-bind="log.message.cache_varnishd"></span>
+            <span class="col-md-2" data-ng-bind="log.message.referer" title="referer"></span>
+        </div>
+
+        <div data-translate="cdn_tabs_logs_list_no_logs"
+             data-ng-if="listCtrl.logger.logs.length === 0"></div>
+    </ovh-tail-logs>
+
+</div>

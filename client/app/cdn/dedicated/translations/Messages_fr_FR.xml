@@ -173,6 +173,7 @@
    <translation id="cdn_domain_tab_statistics" qtlid="26671">Statistiques</translation>
    <translation id="cdn_tab_statistics" qtlid="26671">Statistiques</translation>
    <translation id="cdn_tab_ssl" qtlid="84921">SSL</translation>
+   <translation id="cdn_tab_logs" qtlid="84922">Logs</translation>
    <translation id="cdn_network" qtlid="25591">Réseau</translation>
    <translation id="cdn_network_domain" qtlid="8458">Domaine</translation>
    <translation id="cdn_network_ipv4" qtlid="101781">IPv4</translation>
